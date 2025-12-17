@@ -1,0 +1,514 @@
+/* GSearch - GatotKaca Cyber Modern Animations */
+/* Inspired by Linear.app elegant animations with GatotKaca theme */
+
+/* ===== EASING FUNCTIONS ===== */
+:root {
+  --ease-out-cubic: cubic-bezier(0.33, 1, 0.68, 1);
+  --ease-in-out-cubic: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+  --ease-spring: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  --transition-fast: 150ms var(--ease-out-cubic);
+  --transition-base: 250ms var(--ease-out-cubic);
+  --transition-slow: 350ms var(--ease-out-cubic);
+}
+
+@keyframes particleFloat {
+  0% {
+    transform: translateY(100vh) translateX(0);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 0.3;
+  }
+
+  90% {
+    opacity: 0.3;
+  }
+
+  100% {
+    transform: translateY(-100vh) translateX(50px);
+    opacity: 0;
+  }
+}
+
+/* ===== GATOTKACA SUBTLE POWER AURA ===== */
+.gatotkaca-power-aura {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: radial-gradient(circle,
+      rgba(255, 215, 0, 0.05) 0%,
+      rgba(255, 215, 0, 0.02) 40%,
+      transparent 70%);
+  animation: powerAura 6s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes powerAura {
+
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+
+  50% {
+    transform: scale(1.08);
+    opacity: 0.25;
+  }
+}
+
+/* ===== ELEGANT SEARCH STATES ===== */
+.search-button-glow {
+  position: relative;
+  overflow: hidden;
+  transition: all var(--transition-base);
+}
+
+.search-button-glow::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: radial-gradient(circle,
+      rgba(0, 255, 255, 0.1),
+      transparent 70%);
+  transition: all var(--transition-slow);
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+}
+
+.search-button-glow:hover::before {
+  width: 120%;
+  height: 120%;
+}
+
+/* ===== SOPHISTICATED LOADING ===== */
+.gatotkaca-loading-enhanced {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.gatotkaca-loading-ring {
+  width: 60px;
+  height: 60px;
+  border: 2px solid rgba(255, 215, 0, 0.1);
+  border-top: 2px solid var(--gatotkaca-gold);
+  border-radius: 50%;
+  animation: gatotkacaSpin 2s ease-in-out infinite;
+}
+
+@keyframes gatotkacaSpin {
+  0% {
+    transform: rotate(0deg);
+    opacity: 0.4;
+  }
+
+  50% {
+    transform: rotate(180deg);
+    opacity: 1;
+  }
+
+  100% {
+    transform: rotate(360deg);
+    opacity: 0.4;
+  }
+}
+
+.gatotkaca-loading-text {
+  color: var(--gatotkaca-gold);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  animation: textPulse 2s ease-in-out infinite;
+  opacity: 0.7;
+}
+
+@keyframes textPulse {
+
+  0%,
+  100% {
+    opacity: 0.7;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+/* ===== STAGGERED RESULT ENTRIES ===== */
+.result-item-enter {
+  opacity: 0;
+  transform: translateY(16px);
+  animation: resultItemEnter 0.5s var(--ease-out-cubic) forwards;
+}
+
+@keyframes resultItemEnter {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Stagger delays */
+.result-item-enter:nth-child(1) {
+  animation-delay: 0ms;
+}
+
+.result-item-enter:nth-child(2) {
+  animation-delay: 50ms;
+}
+
+.result-item-enter:nth-child(3) {
+  animation-delay: 100ms;
+}
+
+.result-item-enter:nth-child(4) {
+  animation-delay: 150ms;
+}
+
+.result-item-enter:nth-child(5) {
+  animation-delay: 200ms;
+}
+
+.result-item-enter:nth-child(6) {
+  animation-delay: 250ms;
+}
+
+.result-item-enter:nth-child(7) {
+  animation-delay: 300ms;
+}
+
+.result-item-enter:nth-child(8) {
+  animation-delay: 350ms;
+}
+
+.result-item-enter:nth-child(9) {
+  animation-delay: 400ms;
+}
+
+.result-item-enter:nth-child(10) {
+  animation-delay: 450ms;
+}
+
+/* ===== CATEGORY BUTTON ANIMATIONS ===== */
+.category-btn-enter {
+  opacity: 0;
+  transform: translateY(8px) scale(0.95);
+  animation: categoryBtnEnter 0.4s var(--ease-out-cubic) forwards;
+}
+
+@keyframes categoryBtnEnter {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.category-btn-enter:nth-child(1) {
+  animation-delay: 0ms;
+}
+
+.category-btn-enter:nth-child(2) {
+  animation-delay: 40ms;
+}
+
+.category-btn-enter:nth-child(3) {
+  animation-delay: 80ms;
+}
+
+.category-btn-enter:nth-child(4) {
+  animation-delay: 120ms;
+}
+
+.category-btn-enter:nth-child(5) {
+  animation-delay: 160ms;
+}
+
+/* ===== SUBTLE SHIELD ANIMATION ===== */
+.search-shield-pulse {
+  transition: all var(--transition-slow);
+}
+
+.search-shield-pulse:hover {
+  box-shadow:
+    0 0 0 1px rgba(255, 215, 0, 0.1),
+    0 4px 20px rgba(255, 215, 0, 0.15);
+  transform: translateY(-2px);
+}
+
+/* ===== ELEGANT VOICE SEARCH ===== */
+.voice-search-wave {
+  display: inline-block;
+  width: 3px;
+  height: 16px;
+  background: var(--cyber-blue);
+  margin: 0 1px;
+  border-radius: 2px;
+  animation: voiceWave 1.2s ease-in-out infinite;
+}
+
+.voice-search-wave:nth-child(2) {
+  animation-delay: 0.1s;
+  height: 20px;
+}
+
+.voice-search-wave:nth-child(3) {
+  animation-delay: 0.2s;
+  height: 12px;
+}
+
+@keyframes voiceWave {
+
+  0%,
+  100% {
+    transform: scaleY(0.5);
+    opacity: 0.4;
+  }
+
+  50% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
+
+/* ===== MINIMAL GRID BACKGROUND ===== */
+.cyber-grid-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image:
+    linear-gradient(rgba(0, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 60px 60px;
+  animation: gridMove 120s linear infinite;
+  z-index: 0;
+}
+
+@keyframes gridMove {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 60px 60px;
+  }
+}
+
+/* ===== REFINED LOGO ANIMATION ===== */
+.gatotkaca-logo-glow {
+  transition: all var(--transition-base);
+}
+
+.gatotkaca-logo-glow:hover {
+  filter: drop-shadow(0 0 12px rgba(255, 215, 0, 0.3));
+}
+
+/* ===== SUBTLE ERROR ANIMATION ===== */
+.error-shake {
+  animation: errorShake 0.4s var(--ease-spring);
+}
+
+@keyframes errorShake {
+
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  25% {
+    transform: translateX(-4px);
+  }
+
+  75% {
+    transform: translateX(4px);
+  }
+}
+
+/* ===== GENTLE SUCCESS ANIMATION ===== */
+.success-bounce {
+  animation: successBounce 0.5s var(--ease-spring);
+}
+
+@keyframes successBounce {
+  0% {
+    transform: scale(1);
+  }
+
+  40% {
+    transform: scale(1.05);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* ===== SMOOTH PAGE LOAD ===== */
+.page-load-animation {
+  animation: pageLoad 0.6s var(--ease-out-cubic);
+}
+
+@keyframes pageLoad {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== FOCUS STATES ===== */
+.search-input-enhanced {
+  transition: all var(--transition-base);
+}
+
+.search-input-enhanced:focus {
+  transform: translateY(-1px);
+  box-shadow:
+    0 0 0 1px rgba(0, 255, 255, 0.2),
+    0 4px 20px rgba(0, 255, 255, 0.1);
+}
+
+/* ===== HOVER STATES ===== */
+.cyber-button {
+  transition: all var(--transition-base);
+  position: relative;
+  overflow: hidden;
+}
+
+.cyber-button:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 8px 25px rgba(0, 255, 255, 0.2),
+    0 0 0 1px rgba(0, 255, 255, 0.1);
+}
+
+.cyber-button:active {
+  transform: translateY(0);
+  transition-duration: var(--transition-fast);
+}
+
+/* ===== WARNING PULSE ===== */
+.warning-pulse {
+  animation: warningPulse 2s ease-in-out infinite;
+}
+
+@keyframes warningPulse {
+
+  0%,
+  100% {
+    opacity: 0.8;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.02);
+  }
+}
+
+/* ===== RESPONSIVE ADJUSTMENTS ===== */
+@media (max-width: 768px) {
+  :root {
+    --transition-fast: 120ms var(--ease-out-cubic);
+    --transition-base: 200ms var(--ease-out-cubic);
+    --transition-slow: 300ms var(--ease-out-cubic);
+  }
+
+  .cyber-particle {
+    width: 1.5px;
+    height: 1.5px;
+  }
+
+  .gatotkaca-power-aura {
+    width: 80px;
+    height: 80px;
+  }
+
+  .gatotkaca-loading-ring {
+    width: 48px;
+    height: 48px;
+  }
+}
+
+/* ===== REDUCED MOTION SUPPORT ===== */
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ===== PERFORMANCE OPTIMIZATIONS ===== */
+.hardware-accelerated {
+  transform: translateZ(0);
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+}
+
+/* ===== INTERACTIVE STATES ===== */
+.interactive-element {
+  transition: all var(--transition-base);
+  cursor: pointer;
+}
+
+.interactive-element:hover {
+  transform: translateY(-1px);
+}
+
+.interactive-element:active {
+  transform: translateY(0);
+  transition-duration: var(--transition-fast);
+}
+
+/* ===== SMOOTH SCROLL ===== */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ===== SELECTION STYLING ===== */
+::selection {
+  background: rgba(0, 255, 255, 0.2);
+  color: white;
+}
+
+/* ===== CUSTOM SCROLLBAR ===== */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg,
+      var(--cyber-blue),
+      var(--gatotkaca-gold));
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg,
+      var(--gatotkaca-gold),
+      var(--cyber-blue));
+}
